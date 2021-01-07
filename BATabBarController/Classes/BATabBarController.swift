@@ -32,7 +32,7 @@ public class BATabBarController:  UIViewController {
     public var delegate: BATabBarControllerDelegate?
     
     //Custom tab bar
-    var tabBar: BATabBar?
+    public var tabBar: BATabBar?
   
     //View controllers associated with the tabs
     public var viewControllers: [UIViewController] = []  {
