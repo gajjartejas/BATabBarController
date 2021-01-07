@@ -32,7 +32,7 @@ public class BATabBarController: UIViewController {
 
     // Custom tab bar
     public var tabBar: BATabBar?
-
+    
     // View controllers associated with the tabs
     public var viewControllers: [UIViewController] = [] {
         didSet {

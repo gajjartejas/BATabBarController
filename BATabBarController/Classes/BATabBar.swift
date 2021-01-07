@@ -75,6 +75,13 @@ public class BATabBar: UIView {
         }
     }
     
+    public var tabBarHidden: Bool = false {
+        didSet {
+            self.isHidden = tabBarHidden
+            self.layoutSubviews()
+        }
+    }
+    
     public override func updateConstraints() {
         if(!constraintsLoaded) {
             
@@ -122,7 +129,12 @@ public class BATabBar: UIView {
         heightConstraint?.deactivate()
         self.snp.makeConstraints { make in
             //SafeAreaInsets seems to set after a couple loops. Not sure why.
-            heightConstraint = make.height.equalTo(BATabBarProperties.TabBarHeight + Int(self.safeAreaInsets.bottom)).constraint
+            if self.tabBarHidden {
+                heightConstraint = make.height.equalTo(0).constraint
+            } else {
+                heightConstraint = make.height.equalTo(BATabBarProperties.TabBarHeight + Int(self.safeAreaInsets.bottom)).constraint
+            }
+            
         }
     }
     
