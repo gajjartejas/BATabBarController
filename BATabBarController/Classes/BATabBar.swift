@@ -27,7 +27,7 @@ protocol BATabBarDelegate: AnyObject {
      func tabBar(_ tabBar: BATabBar, didSelectItemAt index: Int)
 }
 
-class BATabBar: UIView {
+public class BATabBar: UIView {
     
     enum BATabBarProperties {
         //Standard Tool bar Height
@@ -75,7 +75,7 @@ class BATabBar: UIView {
         }
     }
     
-    override func updateConstraints() {
+    public override func updateConstraints() {
         if(!constraintsLoaded) {
             
             heightConstraint?.deactivate()
@@ -116,7 +116,7 @@ class BATabBar: UIView {
         super.updateConstraints()
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         //tab bar constraints will change depending on orientation
        
         heightConstraint?.deactivate()
@@ -142,7 +142,7 @@ class BATabBar: UIView {
         customInit()
     }
     
-    override func prepareForInterfaceBuilder() {
+    public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         customInit()
     }
